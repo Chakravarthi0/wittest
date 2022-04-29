@@ -1,0 +1,50 @@
+.quit-btn {
+  position: absolute;
+  right: 1rem;
+  margin-top: -2.7rem;
+}
+
+.quiz-stat {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin: 3rem 0;
+}
+
+.quiz-stat > p {
+  font-size: 1.8rem;
+}
+
+.question-head {
+  margin: 3rem 0;
+}
+
+.next-btn {
+  transform: translateY(-50%);
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 5rem 0 3rem;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .quit-btn {
+    right: 5px;
+  }
+  .question-head {
+    margin: 4rem 0;
+  }
+  .question-statement {
+    font-size: 2rem;
+  }
+  .option {
+    font-size: 1.8rem;
+    padding: 1.5rem;
+  }
+  .next-btn {
+    padding: 6px;
+  }
+  .quiz-stat > p {
+    font-size: 1.6rem;
+  }
+}

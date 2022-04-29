@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --dark-purple: #49118c;
+  --primary-color: #731dd8;
+  --primary-dark: #49118c;
+  --page-heading: 3.5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-head {
+  text-align: center;
+  font-size: var(--page-heading);
+  margin: 3rem;
+}
+
+.btn-wide {
+  width: 90%;
+}
+
+.nav-links-container {
+  gap: 3rem;
+  align-items: center;
+}
+
+.link.btn {
+  border-radius: 4px;
+}
+
+.input {
+  background-color: var(--white);
+  border: none;
+}
+
+.btn-primary-inv {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 2px;
+  border: 2px solid var(--primary-color);
+}
+
+.btn-primary-inv:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.nav-btn {
+  border: 2px solid var(--white);
+}
+
+.nav-btn:hover {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--white);
 }
