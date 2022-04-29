@@ -1,0 +1,23 @@
+.result-head {
+  margin: 3rem 0;
+}
+
+.final-score {
+  font-size: 2.8rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.finish-btn {
+  transform: translateX(-50%);
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 5rem 0 3rem 50%;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .final-score {
+    font-size: 2.2rem;
+  }
+}
