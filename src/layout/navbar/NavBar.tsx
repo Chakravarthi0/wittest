@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AsideNavBar } from "./AsideNavBar";
+import { useAuth } from "../../hooks";
 import "./navbar.css";
+
 function NavBar() {
+  const {
+    signOut,
+    authState: {
+      userDetails: { token },
+    },
+  } = useAuth();
   useEffect(() => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -20,7 +28,7 @@ function NavBar() {
       <Link to={"/"} className="link white">
         <h2 className="nav-logo">Wittest</h2>
       </Link>
-      {isOpen && <AsideNavBar token={""} setIsNavOpen={setIsOpen} />}
+      {isOpen && <AsideNavBar token={token} setIsNavOpen={setIsOpen} />}
 
       <nav>
         {(isOpen || screenWidth > 800) && (
@@ -33,8 +41,11 @@ function NavBar() {
               />
             </li>
             <li>
-              <Link className="link btn btn-primary-inv" to={"/signin"}>
-                Sign In
+              <Link
+                className="link white nav-link"
+                to={token ? "/profile" : "/signin"}
+              >
+                <i className="fas fa-user nav-icon"></i>
               </Link>
             </li>
           </ul>

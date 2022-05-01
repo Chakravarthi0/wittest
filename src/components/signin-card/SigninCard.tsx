@@ -1,13 +1,20 @@
-import { useState } from "react";
-import { PasswordInput } from "../index";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Loader, OverlayContainer, PasswordInput } from "../";
 import {
   ReactChangeEvent,
   ReactMouseEvent,
   authInputType,
   errorType,
 } from "../../types";
+import { useAuth } from "../../hooks";
 import "./signin-card.css";
+
+type LocationState = {
+  from: {
+    pathname: string;
+  };
+};
 
 function SigninCard() {
   const [signInInput, setSignInInput] = useState({
@@ -17,6 +24,28 @@ function SigninCard() {
   });
   const [formErrors, setFormErrors] = useState<errorType>({} as errorType);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const {
+    signIn,
+    authState: { loading: isAuthLoading },
+  } = useAuth();
+
+  const location = useLocation();
+  const { from } = (location.state as LocationState) || {
+    from: { pathname: "/" },
+  };
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmitted) {
+      signIn(
+        {
+          userEmail: signInInput.userEmail,
+          password: signInInput.password,
+        },
+        from
+      );
+    }
+  }, [formErrors]);
 
   const { userEmail, password, rememberMe } = signInInput;
 
@@ -45,6 +74,13 @@ function SigninCard() {
       password: "12345678",
       rememberMe: false,
     });
+    signIn(
+      {
+        userEmail: "johndoe@gmail.com",
+        password: "12345678",
+      },
+      from
+    );
   };
 
   const validateInput = (inputs: authInputType) => {
@@ -63,6 +99,11 @@ function SigninCard() {
 
   return (
     <div className="sign-x-form-container">
+      {isAuthLoading && (
+        <OverlayContainer>
+          <Loader isFullScreen={false} />
+        </OverlayContainer>
+      )}
       <form className="sign-x-form">
         <h2 className="text-center">SignIn</h2>
         <div className="input-container">
@@ -103,16 +144,24 @@ function SigninCard() {
             </Link>
           </div>
           <button
-            className="btn btn-primary sign-x-btn"
+            className={
+              "btn btn-primary sign-x-btn " +
+              (isAuthLoading ? "cursor-not-allowed" : "")
+            }
             value="submit"
             onClick={handleSignInSubmit}
+            disabled={isAuthLoading}
           >
             Sign In
           </button>
           <button
-            className="btn btn-primary-ol sign-x-btn btn-guest-login"
+            className={
+              "btn btn-primary-ol sign-x-btn btn-guest-login " +
+              (isAuthLoading ? "cursor-not-allowed" : "")
+            }
             value="submit"
             onClick={loginAsGuest}
+            disabled={isAuthLoading}
           >
             Sign in with test credentials
           </button>

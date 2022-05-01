@@ -1,0 +1,7 @@
+.overlay-container {
+  position: absolute;
+  background-color: var(--out-of-stock-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
