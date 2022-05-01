@@ -51,18 +51,17 @@ const useAuth = () => {
     }
   };
 
-  type signUpType = {
-    userEmail: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-  };
   const signUp = async ({
     userEmail,
     password,
     firstName,
     lastName,
-  }: signUpType) => {
+  }: {
+    userEmail: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+  }) => {
     authDispatch({ type: "INITIALIZE" });
     try {
       let res = await signUpService({ userEmail, password });

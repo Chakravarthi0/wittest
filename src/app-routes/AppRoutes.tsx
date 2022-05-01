@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Home,
@@ -11,7 +10,7 @@ import {
   Category,
   Profile,
 } from "../pages";
-import { authContext } from "../context";
+import { useAuth } from "../hooks";
 import ProtectedRoutes from "./ProtectedRoutes";
 
 function AppRoutes() {
@@ -19,7 +18,7 @@ function AppRoutes() {
     authState: {
       userDetails: { token },
     },
-  } = useContext(authContext);
+  } = useAuth();
   return (
     <Routes>
       <Route path="/" element={<Home />} />
