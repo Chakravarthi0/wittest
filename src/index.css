@@ -71,3 +71,7 @@ a {
   color: var(--primary-color);
   background-color: var(--white);
 }
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
