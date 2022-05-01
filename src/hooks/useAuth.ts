@@ -26,7 +26,7 @@ const useAuth = () => {
         authDispatch({ type: "SIGN_OUT_USER" });
       }
     });
-  }, []);
+  }, [authDispatch]);
 
   const signIn = async (
     { userEmail, password }: authInputType,
