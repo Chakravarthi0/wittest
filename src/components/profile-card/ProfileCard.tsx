@@ -20,7 +20,7 @@ const ProfileCard = () => {
       setUserData(res);
       setIsProfileLoading(false);
     })();
-  }, []);
+  }, [token]);
 
   const [userData, setUserData] = useState<undefined | DocumentData>({});
   const [isProfileLoading, setIsProfileLoading] = useState(false);
