@@ -7,6 +7,8 @@ import {
   authInputType,
   errorType,
 } from "../../types";
+import { useAuth } from "../../hooks";
+import { Loader, OverlayContainer } from "../";
 import "../signin-card/signin-card.css";
 
 function SignupCard() {
@@ -21,11 +23,22 @@ function SignupCard() {
   const [formErrors, setFormErrors] = useState<errorType>({} as errorType);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const {
+    signUp,
+    authState: { loading: isAuthLoading },
+  } = useAuth();
+
   const { firstName, lastName, userEmail, password, confirmPassword } =
     signUpInput;
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmitted) {
+      signUp({
+        userEmail: signUpInput.userEmail,
+        password: signUpInput.password,
+        firstName: signUpInput.firstName,
+        lastName: signUpInput.lastName,
+      });
     }
   }, [formErrors]);
 
@@ -80,6 +93,11 @@ function SignupCard() {
 
   return (
     <div className="sign-x-form-container">
+      {isAuthLoading && (
+        <OverlayContainer>
+          <Loader isFullScreen={false} />
+        </OverlayContainer>
+      )}
       <form className="sign-x-form">
         <h2 className="text-center">SignUp</h2>
         <div className="input-container">
@@ -149,9 +167,13 @@ function SignupCard() {
             </p>
           </div>
           <button
-            className="btn btn-primary sign-x-btn"
+            className={
+              "btn btn-primary sign-x-btn " +
+              (isAuthLoading ? "cursor-not-allowed" : "")
+            }
             value="submit"
             onClick={handleSignUpSubmit}
+            disabled={isAuthLoading}
           >
             Sign UP
           </button>
