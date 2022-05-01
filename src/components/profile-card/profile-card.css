@@ -1,0 +1,10 @@
+.user-profile {
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-card-head {
+  display: flex;
+  gap: 1rem;
+  margin-left: 3rem;
+}
