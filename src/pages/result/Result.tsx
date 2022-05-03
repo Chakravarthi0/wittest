@@ -19,7 +19,9 @@ const Result = () => {
     <div>
       <h1 className="result-head page-head">Result</h1>
 
-      <h2 className="final-score">Final Score: {totalPoints}/100</h2>
+      <h2 className="final-score">
+        Final Score: {totalPoints}/{questions.length * 20}
+      </h2>
 
       {questions.map((questionData: DocumentData, index: number) => (
         <ResultCard
