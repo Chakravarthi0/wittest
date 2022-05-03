@@ -1,4 +1,4 @@
-import { ReactChangeEvent } from "./";
+import { ReactChangeEvent } from "./../index";
 type passwordInputType = {
   name: string;
   handleInputChange: (event: ReactChangeEvent) => void;
