@@ -9,3 +9,4 @@ export { LoadingError } from "./loading-error/LoadingError";
 export { OverlayContainer } from "./overlay-container/OverlayContainer";
 export { ProfileCard } from "./profile-card/ProfileCard";
 export { ResultCard } from "./result-card/ResultCard";
+export { TimeUPModal } from "./time-up-modal/TimeUPModal";
