@@ -1,1 +1,7 @@
-export { getUser, createUser } from "./fireBaseHelper";
+export {
+  getUser,
+  createUser,
+  getQuizzes,
+  getCategories,
+  getQuiz,
+} from "./fireBaseHelper";
