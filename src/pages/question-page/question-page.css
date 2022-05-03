@@ -9,6 +9,8 @@
   justify-content: space-between;
   margin: auto;
   margin: 3rem 0;
+  width: 75%;
+  margin: auto auto 3rem;
 }
 
 .quiz-stat > p {
@@ -25,6 +27,12 @@
   padding: 1rem;
   margin: 5rem 0 3rem;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+  .quiz-stat {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
