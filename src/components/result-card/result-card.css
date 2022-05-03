@@ -3,6 +3,14 @@
   color: var(--white);
 }
 
+.no-hover:hover {
+  background-color: var(--white-pure);
+}
+
+.default-cursor {
+  cursor: default;
+}
+
 .correct-answer:hover {
   background-color: var(--success);
 }
@@ -13,14 +21,6 @@
 }
 .wrong-answer:hover {
   background-color: var(--danger);
-}
-
-.no-hover:hover {
-  background-color: var(--white-pure);
-}
-
-.default-cursor {
-  cursor: default;
 }
 
 .result-stat-container {
