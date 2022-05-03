@@ -41,7 +41,10 @@ const Question = () => {
 
           <div className="question-actions-container">
             <button
-              className={"btn btn-primary " + (currentQuestionIndex === 0 ? "disabled-primary-btn" : "")}
+              className={
+                "btn btn-primary " +
+                (currentQuestionIndex === 0 ? "disabled-primary-btn" : "")
+              }
               onClick={() => {
                 setOption(selectedOptionIndex);
                 getPreviousQuestion();
@@ -55,7 +58,7 @@ const Question = () => {
                 className="btn btn-primary"
                 onClick={() => {
                   setOption(selectedOptionIndex);
-                  navigate("/result");
+                  navigate("/result", { replace: true });
                 }}
               >
                 Finish

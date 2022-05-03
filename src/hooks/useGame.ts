@@ -36,11 +36,16 @@ const useGame = () => {
     gameDispatch({ type: "RESET_QUIZ" });
   };
 
+  const resetSelections = () => {
+    gameDispatch({ type: "RESET_QUESTIONS" });
+  };
+
   return {
     getQuestions,
     setOption,
     getNextQuestion,
     getPreviousQuestion,
+    resetSelections,
     resetQuiz,
     gameState,
   };

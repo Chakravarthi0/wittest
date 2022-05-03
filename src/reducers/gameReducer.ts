@@ -26,13 +26,18 @@ const gameReducer = (state: gameStateType, action: gameActionType) => {
         loading: false,
       };
     case "SET_QUIZ":
-      const selectedOptions = Array(action.payload.questions.length).fill(-1);
       return {
         ...state,
         questions: action.payload.questions,
         loading: false,
-        selectedOptions,
+        selectedOptions: [],
         quizTitle: action.payload.quizTitle,
+      };
+    case "RESET_QUESTIONS":
+      return {
+        ...state,
+        selectedOptions: [],
+        currentQuestionIndex: 0,
       };
     case "RESET_QUIZ":
       return {

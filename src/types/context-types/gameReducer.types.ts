@@ -21,6 +21,10 @@ type gameResetType = {
   type: "RESET_QUIZ";
 };
 
+type selectedOptionResetType = {
+  type: "RESET_QUESTIONS";
+};
+
 type setGameType = {
   type: "SET_QUIZ";
   payload: {
@@ -51,7 +55,8 @@ type gameActionType =
   | nextQuestionType
   | previousQuestionType
   | setOptionType
-  | gameResetType;
+  | gameResetType
+  | selectedOptionResetType;
 
 type gameContextType = {
   gameState: gameStateType;

@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGame } from "../../hooks";
 import "./rules.css";
 
 const Rules = () => {
   const navigate = useNavigate();
+  const { resetSelections } = useGame();
+  useEffect(() => {
+    resetSelections();
+  }, []);
   return (
     <div className="rules-body text-center">
       <h1 className="page-head">Rules</h1>
