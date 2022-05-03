@@ -1,11 +1,6 @@
 import { createContext, useReducer } from "react";
 import { authReducer } from "../reducers";
-import { ReactChildren, authActionType, authStateType } from "../types";
-
-type authContextType = {
-  authState: authStateType;
-  authDispatch: React.Dispatch<authActionType>;
-};
+import { ReactChildren, authContextType } from "../types";
 
 const authContext = createContext({} as authContextType);
 

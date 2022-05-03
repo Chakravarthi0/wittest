@@ -1,8 +1,5 @@
 import "./loader.css";
-
-type loaderType = {
-  isFullScreen: boolean;
-};
+import { loaderType } from "../../types";
 
 function Loader({ isFullScreen }: loaderType) {
   return (

@@ -6,15 +6,10 @@ import {
   ReactMouseEvent,
   authInputType,
   errorType,
+  locationStateType,
 } from "../../types";
 import { useAuth } from "../../hooks";
 import "./signin-card.css";
-
-type LocationState = {
-  from: {
-    pathname: string;
-  };
-};
 
 function SigninCard() {
   const [signInInput, setSignInInput] = useState({
@@ -31,7 +26,7 @@ function SigninCard() {
   } = useAuth();
 
   const location = useLocation();
-  const { from } = (location.state as LocationState) || {
+  const { from } = (location.state as locationStateType) || {
     from: { pathname: "/" },
   };
 
