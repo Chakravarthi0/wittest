@@ -37,6 +37,15 @@
   color: white;
 }
 
+.disabled-primary-btn {
+  background-color: var(--primary-dark);
+}
+
+.disabled-primary-btn {
+  background-color: var(--primary-dark);
+  cursor: not-allowed;
+}
+
 .question-actions-container {
   display: flex;
   flex-wrap: wrap;

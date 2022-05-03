@@ -41,11 +41,12 @@ const Question = () => {
 
           <div className="question-actions-container">
             <button
-              className="btn btn-primary"
+              className={"btn btn-primary " + (currentQuestionIndex === 0 ? "disabled-primary-btn" : "")}
               onClick={() => {
                 setOption(selectedOptionIndex);
                 getPreviousQuestion();
               }}
+              disabled={currentQuestionIndex === 0}
             >
               {"< Prev"}
             </button>
