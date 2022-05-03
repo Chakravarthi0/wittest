@@ -8,14 +8,9 @@ const Rules = () => {
       <h1 className="page-head">Rules</h1>
 
       <ul className="list list-border rules-list">
-        <li>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. cum nam
-        </li>
-        <li>Aspernatur laudantium iure sequi! Saepe recusandae</li>
-        <li>aliquid autem quidem alias cupiditate</li>
-        <li>
-          sint eum mollitia at, ad voluptates, odio exercitationem magnam.
-        </li>
+        <li>The quiz contains 5 questions.</li>
+        <li>Each question carries 20 marks.</li>
+        <li>Each question has only one right answer.</li>
       </ul>
 
       <button

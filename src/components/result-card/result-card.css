@@ -1,0 +1,33 @@
+.correct-answer {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.correct-answer:hover {
+  background-color: var(--success);
+}
+
+.wrong-answer {
+  background-color: var(--danger);
+  color: var(--white);
+}
+.wrong-answer:hover {
+  background-color: var(--danger);
+}
+
+.no-hover:hover {
+  background-color: var(--white-pure);
+}
+
+.default-cursor {
+  cursor: default;
+}
+
+.result-stat-container {
+  justify-content: center;
+}
+
+.result-stat-container > * {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}

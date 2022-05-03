@@ -1,46 +1,79 @@
-import { questionType } from "../../types";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useGame } from "../../hooks";
 import "./question.css";
 
-const Question = ({ isFromResult }: questionType) => {
-  return (
-    <div className="question-body">
-      <p className="question-statement">
-        What does Rick use to travel between dimensions and universes?
-      </p>
+const Question = () => {
+  const navigate = useNavigate();
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
+  const { getNextQuestion, getPreviousQuestion, gameState, setOption } =
+    useGame();
+  const { questions, currentQuestionIndex, selectedOptions } = gameState;
+  const { question, options } = questions[currentQuestionIndex];
 
-      <div className="options-container">
-        <p
-          className={
-            "option " +
-            (isFromResult ? "no-hover default-cursor wrong-answer" : "")
-          }
-        >
-          Space laser
-        </p>
-        <p
-          className={
-            "option " + (isFromResult ? "default-cursor no-hover" : "")
-          }
-        >
-          Universe Key
-        </p>
-        <p
-          className={
-            "option " +
-            (isFromResult ? "default-cursor correct-answer no-hover" : "")
-          }
-        >
-          Portal gun
-        </p>
-        <p
-          className={
-            "option " + (isFromResult ? "no-hover default-cursor" : "")
-          }
-        >
-          Tardis
+  useEffect(() => {
+    setSelectedOptionIndex(selectedOptions[currentQuestionIndex]);
+  }, [currentQuestionIndex]);
+
+  return (
+    <>
+      <div className="quiz-stat">
+        <p>
+          Question: {currentQuestionIndex + 1}/{questions.length}
         </p>
       </div>
-    </div>
+      <div className="question-body">
+        <p className="question-statement">{question}</p>
+
+        <div className="options-container">
+          {options.map((option: string, index: number) => (
+            <p
+              key={option}
+              className={
+                "option " +
+                (selectedOptionIndex === index ? "selected-option" : "")
+              }
+              onClick={() => setSelectedOptionIndex(index)}
+            >
+              {option}
+            </p>
+          ))}
+
+          <div className="question-actions-container">
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                setOption(selectedOptionIndex);
+                getPreviousQuestion();
+              }}
+            >
+              {"< Prev"}
+            </button>
+            {currentQuestionIndex + 1 === questions.length ? (
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  setOption(selectedOptionIndex);
+                  navigate("/result");
+                }}
+              >
+                Finish
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  setOption(selectedOptionIndex);
+                  getNextQuestion();
+                }}
+              >
+                {"Next >"}
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
