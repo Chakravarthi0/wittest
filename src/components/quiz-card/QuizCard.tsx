@@ -15,7 +15,7 @@ const QuizCard = ({
   return (
     <div className="card quiz-card">
       <div className="quiz-img-container">
-        <img className="quiz-img img-responsive" src={imgUrl} />
+        <img className="quiz-img img-responsive" src={imgUrl} alt={title} />
       </div>
       <p className="quiz-title text-center">{title}</p>
       <div className="card-actions text-center">
