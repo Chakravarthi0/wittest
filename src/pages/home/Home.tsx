@@ -1,9 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import { QuizCard } from "../../components";
+import { DocumentData } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { useQuiz } from "../../hooks";
+import { QuizCard, Loader } from "../../components";
 import "./home.css";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const {
+    quizState: { categories, loading: isCategoriesLoading },
+  } = useQuiz();
   return (
     <div>
       {/* hero-section */}
@@ -13,9 +17,9 @@ const Home = () => {
           <h1 className="app-name">WitTest</h1>
           <h1 className="tag-line">Test your Wit</h1>
           <button className="btn btn-primary">
-            <a className="link white" href="#categories-section">
-              Explore Categories
-            </a>
+            <Link className="link white" to={"/quizzes"}>
+              Explore Quizzes
+            </Link>
           </button>
         </div>
       </div>
@@ -24,38 +28,22 @@ const Home = () => {
 
       <div className="categories-container" id="categories-section">
         <h2 className="categories-head">Categories</h2>
-        <div className="categories">
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-          <QuizCard
-            title={"TV Shows"}
-            redirectTo={"/categories"}
-            isCategoryCard={true}
-          />
-        </div>
+        {isCategoriesLoading ? (
+          <Loader isFullScreen={true} />
+        ) : (
+          <div className="categories">
+            {categories?.map((ele: DocumentData) => (
+              <QuizCard
+                title={ele.categoryTitle}
+                redirectTo={`/quizzes/${ele.categoryName}`}
+                imgUrl={ele.categoryImgUrl}
+                id={ele.id}
+                key={ele.id}
+                isCategoryCard={true}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

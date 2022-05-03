@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { quitQuizModalType } from "../../types";
+import { useGame } from "../../hooks";
 import "./quit-quiz-modal.css";
 
 const QuitQuizModal = ({ isModalOpen, setIsModalOpen }: quitQuizModalType) => {
   const navigate = useNavigate();
+  const { resetQuiz } = useGame();
   return (
     <div>
       <div className={`modal-bg ` + (!isModalOpen ? "hidden" : "")}>
@@ -25,7 +27,10 @@ const QuitQuizModal = ({ isModalOpen, setIsModalOpen }: quitQuizModalType) => {
             </button>
             <button
               className="btn btn-primary-ol modal-close-btn"
-              onClick={() => navigate("/")}
+              onClick={() => {
+                resetQuiz();
+                navigate("/");
+              }}
             >
               Yes
             </button>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { QuitQuizModal, Question } from "../../components";
+import { useGame } from "../../hooks";
 import "./question-page.css";
 
 const QuestionPage = () => {
-  const navigate = useNavigate();
+  const { gameState } = useGame();
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div>
@@ -20,21 +20,10 @@ const QuestionPage = () => {
       >
         Quit
       </button>
-      <h1 className="page-head question-head">Rick And Morty</h1>
-      {/* question */}
-      <div className="question-body">
-        <div className="quiz-stat">
-          <p>Question: 5/5</p>
-          <p>Score 100</p>
-        </div>
+      <h1 className="page-head question-head">{gameState.quizTitle}</h1>
 
+      <div className="question-body">
         <Question />
-        <button
-          className="btn btn-primary next-btn"
-          onClick={() => navigate("/result")}
-        >
-          Next
-        </button>
       </div>
     </div>
   );

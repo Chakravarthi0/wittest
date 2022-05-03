@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AsideNavBar } from "./AsideNavBar";
 import { useAuth } from "../../hooks";
@@ -6,20 +6,12 @@ import "./navbar.css";
 
 function NavBar() {
   const {
-    signOut,
     authState: {
       userDetails: { token },
     },
   } = useAuth();
-  useEffect(() => {
-    const changeWidth = () => {
-      setScreenWidth(window.innerWidth);
-    };
 
-    window.addEventListener("resize", changeWidth);
-  }, []);
   const [isOpen, setIsOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggleIsOpen = () => {
     setIsOpen((prev) => !prev);
   };
@@ -31,7 +23,7 @@ function NavBar() {
       {isOpen && <AsideNavBar token={token} setIsNavOpen={setIsOpen} />}
 
       <nav>
-        {(isOpen || screenWidth > 800) && (
+         
           <ul className={"list nav-links-container"}>
             <li className="nav-search-container">
               <input
@@ -49,7 +41,7 @@ function NavBar() {
               </Link>
             </li>
           </ul>
-        )}
+        
         <i className={"material-icons hamburger-icon"} onClick={toggleIsOpen}>
           {isOpen ? "close" : "menu"}
         </i>

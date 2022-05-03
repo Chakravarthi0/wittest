@@ -4,7 +4,8 @@ export { SigninCard } from "./signin-card/SigninCard";
 export { SignupCard } from "./signup-card/SignupCard";
 export { QuitQuizModal } from "./quit-quiz-modal/QuitQuizModal";
 export { Question } from "./question/Question";
-export {Loader} from "./loader/Loader"
-export {LoadingError} from "./loading-error/LoadingError"
-export {OverlayContainer} from "./overlay-container/OverlayContainer"
-export {ProfileCard} from "./profile-card/ProfileCard"
+export { Loader } from "./loader/Loader";
+export { LoadingError } from "./loading-error/LoadingError";
+export { OverlayContainer } from "./overlay-container/OverlayContainer";
+export { ProfileCard } from "./profile-card/ProfileCard";
+export { ResultCard } from "./result-card/ResultCard";

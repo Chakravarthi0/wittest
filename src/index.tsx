@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Toaster } from "react-hot-toast";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { AuthProvider } from "./context";
+import { AuthProvider, QuizProvider, GameProvider } from "./context";
 import "./index.css";
 
 const root = ReactDOM.createRoot(
@@ -15,7 +15,11 @@ root.render(
     <Router>
       <Toaster position="top-center" />
       <AuthProvider>
-        <App />
+        <QuizProvider>
+          <GameProvider>
+            <App />
+          </GameProvider>
+        </QuizProvider>
       </AuthProvider>
     </Router>
   </React.StrictMode>
