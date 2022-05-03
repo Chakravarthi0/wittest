@@ -20,7 +20,7 @@ const ResultCard = ({
           ) : (
             <span className="danger ">0/20</span>
           )}
-          {selectedOption === -1 && (
+          {selectedOption === undefined && (
             <span className="danger ">(not attempted)</span>
           )}
         </div>
