@@ -13,7 +13,7 @@ const Rules = () => {
   } = useQuiz();
   const { resetSelections, getQuestions } = useGame();
   const currentQuiz = quizzes.find((ele: DocumentData) => ele.id === quizId);
-  console.log(currentQuiz);
+
   useEffect(() => {
     resetSelections();
   }, []);
@@ -23,7 +23,7 @@ const Rules = () => {
         <Loader isFullScreen={true} />
       ) : (
         <>
-          <h1 className="page-head">{currentQuiz.quizTitle}</h1>
+          <h1 className="page-head">{currentQuiz?.quizTitle}</h1>
 
           <h2>Rules</h2>
 
@@ -36,7 +36,7 @@ const Rules = () => {
           <button
             className="btn btn-primary start-quiz-btn"
             onClick={() => {
-              getQuestions(quizId, currentQuiz.quizTitle);
+              getQuestions(quizId, currentQuiz?.quizTitle);
               navigate("/question");
             }}
           >

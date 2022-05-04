@@ -25,6 +25,7 @@ function AppRoutes() {
 
       <Route path="/quizzes" element={<Category />} />
       <Route path="/quizzes/:quizId" element={<Category />} />
+      <Route path="/rules/:quizId" element={<Rules />} />
 
       {!token ? (
         <>
@@ -39,7 +40,6 @@ function AppRoutes() {
       )}
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/rules/:quizId" element={<Rules />} />
         <Route path="/question" element={<QuestionPage />} />
         <Route path="/result" element={<Result />} />
         <Route path="/profile" element={<Profile />} />
