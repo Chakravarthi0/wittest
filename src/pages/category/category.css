@@ -9,6 +9,49 @@
   margin: 3rem 0;
 }
 
+/* searchbar */
+
+.search-input {
+  flex: 1;
+  margin-left: 5px;
+  height: 4rem;
+  border: none;
+  border-radius: 3rem;
+  outline: none;
+  background-color: var(--white);
+}
+
+.search {
+  height: 3.5rem;
+  background-color: var(--white);
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.search-container {
+  width: 70%;
+  max-width: 80rem;
+  display: flex;
+  margin: 2rem auto;
+  background-color: var(--white-pure);
+}
+
+.search-container > * {
+  background-color: var(--white-pure);
+}
+
+.explore-nav > input {
+  background-color: var(--white-pure);
+}
+
+@media screen and (max-width: 950px) {
+  .explore-nav {
+    display: flex;
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .quizzes-container {
     grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
