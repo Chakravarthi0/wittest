@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { quizCardType } from "../../types";
-import { useGame } from "../../hooks";
 import "./quiz-card.css";
+import toast from "react-hot-toast";
 
 const QuizCard = ({
   title,
@@ -10,33 +10,33 @@ const QuizCard = ({
   imgUrl,
   id,
 }: quizCardType) => {
-  const { getQuestions } = useGame();
   const navigate = useNavigate();
+
+  const copyUrlTOClipboard = async () => {
+    await navigator.clipboard.writeText(`http://localhost:3000/rules/${id}`);
+    toast.success("Link copied to clipboard");
+  };
   return (
     <div className="card quiz-card">
       <div className="quiz-img-container">
         <img className="quiz-img img-responsive" src={imgUrl} alt={title} />
       </div>
+      {!isCategoryCard && (
+        <div
+          className="share-icon material-icons bg-white-pure"
+          onClick={copyUrlTOClipboard}
+        >
+          <i className="fas fa-share black"></i>
+        </div>
+      )}
       <p className="quiz-title text-center">{title}</p>
       <div className="card-actions text-center">
-        {isCategoryCard ? (
-          <button
-            className="btn btn-primary btn-wide"
-            onClick={() => navigate(redirectTo)}
-          >
-            Explore
-          </button>
-        ) : (
-          <button
-            className="btn btn-primary btn-wide"
-            onClick={() => {
-              navigate(redirectTo);
-              getQuestions(id, title);
-            }}
-          >
-            Play
-          </button>
-        )}
+        <button
+          className="btn btn-primary btn-wide"
+          onClick={() => navigate(redirectTo)}
+        >
+          {isCategoryCard ? "Explore" : "Play"}
+        </button>
       </div>
     </div>
   );

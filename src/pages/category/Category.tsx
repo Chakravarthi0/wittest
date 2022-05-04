@@ -56,7 +56,7 @@ const Category = () => {
               key={ele.id}
               title={ele.quizTitle}
               imgUrl={ele.quizImgUrl}
-              redirectTo={"/rules"}
+              redirectTo={`/rules/${ele.id}`}
               isCategoryCard={false}
               id={ele.id}
             />

@@ -39,7 +39,7 @@ function AppRoutes() {
       )}
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/rules" element={<Rules />} />
+        <Route path="/rules/:quizId" element={<Rules />} />
         <Route path="/question" element={<QuestionPage />} />
         <Route path="/result" element={<Result />} />
         <Route path="/profile" element={<Profile />} />

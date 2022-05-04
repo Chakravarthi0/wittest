@@ -5,7 +5,10 @@ import { getQuiz } from "../utils";
 const useGame = () => {
   const { gameState, gameDispatch } = useContext(gameContext);
 
-  const getQuestions = async (quizId: string, quizTitle: string) => {
+  const getQuestions = async (
+    quizId: string | undefined,
+    quizTitle: string
+  ) => {
     try {
       gameDispatch({ type: "INITIALIZE" });
       let quiz = await getQuiz(quizId);

@@ -67,7 +67,7 @@ const getQuizzes = async () => {
   }
 };
 
-const getQuiz = async (quizId: string) => {
+const getQuiz = async (quizId: string | undefined) => {
   try {
     const quizRef = collection(db, `quizzes/${quizId}/questions`);
     const res = await getDocs(quizRef);
