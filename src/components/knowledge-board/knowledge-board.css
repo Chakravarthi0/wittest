@@ -1,0 +1,36 @@
+.vl {
+  border-left: 3px solid var(--black);
+  height: 6rem;
+}
+
+.quiz-board-container {
+  margin: 0 2rem;
+}
+
+.quiz-board-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-board-item > h4 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-board-item > p {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 560px) {
+  .quiz-board-item > h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .quiz-board-container {
+    flex-direction: column;
+  }
+  .vl {
+    display: none;
+  }
+}

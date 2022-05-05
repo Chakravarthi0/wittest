@@ -4,4 +4,5 @@ export {
   getQuizzes,
   getCategories,
   getQuiz,
+  updateScore,
 } from "./fireBaseHelper";

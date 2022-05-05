@@ -6,6 +6,7 @@ import {
   getDocs,
   DocumentData,
   collection,
+  updateDoc,
 } from "firebase/firestore";
 import { categoriesRef, db, quizzesRef } from "../firebaseConfig";
 
@@ -24,6 +25,8 @@ const createUser = async (
         email: user.email,
         firstName,
         lastName,
+        quizzesAttempted: 0,
+        totalScore: 0,
       });
     }
   } catch (err) {
@@ -81,4 +84,22 @@ const getQuiz = async (quizId: string | undefined) => {
   }
 };
 
-export { createUser, getUser, getCategories, getQuizzes, getQuiz };
+const updateScore = async (uid: string, currentScore: number) => {
+  try {
+    const userRef = doc(db, `users/${uid}`);
+    const userSnapshot = await getDoc(userRef);
+
+    if (userSnapshot.exists()) {
+      const { quizzesAttempted, totalScore } = userSnapshot.data();
+
+      await updateDoc(userRef, {
+        quizzesAttempted: quizzesAttempted + 1,
+        totalScore: totalScore + currentScore,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { createUser, getUser, getCategories, getQuizzes, getQuiz, updateScore };
