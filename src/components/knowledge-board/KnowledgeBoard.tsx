@@ -1,9 +1,5 @@
-import "./Knowledge-board.css";
-
-type KnowledgeBoardType = {
-  quizzesAttempted: number;
-  totalScore: number;
-};
+import { KnowledgeBoardType } from "../../types";
+import "./knowledge-board.css";
 
 const KnowledgeBoard = ({
   quizzesAttempted,

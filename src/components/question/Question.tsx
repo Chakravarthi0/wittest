@@ -52,8 +52,8 @@ const Question = () => {
               Question: {currentQuestionIndex + 1}/{questions.length}
             </p>
             <p>
-              {minutes < 9 ? "0" + minutes : minutes} :
-              {seconds < 9 ? "0" + seconds : seconds}
+              {minutes < 10 ? "0" + minutes : minutes} :
+              {seconds < 10 ? "0" + seconds : seconds}
             </p>
           </div>
           <div className="question-body">

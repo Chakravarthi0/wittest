@@ -1,11 +1,6 @@
+import { profileCardType } from "../../types";
 import "./profile-card.css";
 
-type profileCardType = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  signOut: () => void;
-};
 const ProfileCard = ({
   firstName,
   lastName,

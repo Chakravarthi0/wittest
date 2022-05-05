@@ -30,6 +30,7 @@ const Rules = () => {
           <ul className="list list-border rules-list">
             <li>The quiz contains 5 questions.</li>
             <li>Each question carries 20 marks.</li>
+            <li>You have 1 minute and 30 seconds to finsih the quiz.</li>
             <li>Each question has only one right answer.</li>
           </ul>
 

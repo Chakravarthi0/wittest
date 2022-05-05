@@ -12,6 +12,8 @@ export type {
   asideNavBarType,
   resultCardType,
   loaderType,
+  profileCardType,
+  KnowledgeBoardType,
 } from "./component-types/index";
 export type { locationStateType } from "./locationState.type";
 export type {
