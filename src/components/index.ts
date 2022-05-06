@@ -11,3 +11,5 @@ export { ProfileCard } from "./profile-card/ProfileCard";
 export { ResultCard } from "./result-card/ResultCard";
 export { TimeUPModal } from "./time-up-modal/TimeUPModal";
 export { KnowledgeBoard } from "./knowledge-board/KnowledgeBoard";
+export { CreateQuestion } from "./create-question/CreateQuestion";
+export { LoadingModal } from "./loading-modal/LoadingModal";
