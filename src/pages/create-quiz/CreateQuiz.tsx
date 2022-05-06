@@ -31,7 +31,7 @@ const CreateQuiz = () => {
       createQuizData.quizTitle.trim() === "" ||
       createQuizData.quizCategory.trim() === "" ||
       createQuizData.quizImgUrl.trim() === "" ||
-      createQuizData.noOfQuestions < 1 ||
+      createQuizData.noOfQuestions < 5 ||
       createQuizData.noOfQuestions > 10
     ) {
       return true;
