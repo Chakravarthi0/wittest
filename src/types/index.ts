@@ -14,6 +14,7 @@ export type {
   loaderType,
   profileCardType,
   KnowledgeBoardType,
+  createQuestionType,
 } from "./component-types/index";
 export type { locationStateType } from "./locationState.type";
 export type {
@@ -27,3 +28,5 @@ export type {
   gameActionType,
   gameContextType,
 } from "./context-types";
+
+export type { addQuestionHelperType, addQuizHelperType } from "./helper.types";
