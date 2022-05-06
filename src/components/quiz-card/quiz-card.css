@@ -11,6 +11,10 @@
   margin: 2rem 0;
 }
 
+.quiz-img-container {
+  min-height: 20rem;
+}
+
 .quiz-img {
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;

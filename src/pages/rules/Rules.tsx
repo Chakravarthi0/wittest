@@ -37,8 +37,10 @@ const Rules = () => {
           <button
             className="btn btn-primary start-quiz-btn"
             onClick={() => {
-              getQuestions(quizId, currentQuiz?.quizTitle);
-              navigate("/question");
+              if (quizId) {
+                getQuestions(quizId, currentQuiz?.quizTitle);
+                navigate("/question");
+              }
             }}
           >
             Start Quiz

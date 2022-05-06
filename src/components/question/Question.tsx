@@ -65,7 +65,7 @@ const Question = () => {
               {questions[currentQuestionIndex]?.options.map(
                 (option: string, index: number) => (
                   <p
-                    key={option}
+                    key={index}
                     className={
                       "option " +
                       (selectedOptionIndex === index ? "selected-option" : "")
