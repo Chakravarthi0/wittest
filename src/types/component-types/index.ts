@@ -7,3 +7,4 @@ export type { resultCardType } from "./resultCard.type";
 export type { loaderType } from "./loader.type";
 export type { KnowledgeBoardType } from "./knowledgeBoard.type";
 export type { profileCardType } from "./profileCard.type";
+export type { createQuestionType } from "./createQuestion.type";

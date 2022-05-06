@@ -32,6 +32,14 @@ function NavBar() {
               <i className="fas fa-user nav-icon"></i>
             </Link>
           </li>
+          <li>
+            <Link
+              className="link white nav-link create-quiz-link"
+              to={token ? "/create-quiz" : "/signin"}
+            >
+              <i className="fas fa-plus"></i> Create Quiz
+            </Link>
+          </li>
         </ul>
 
         <i className={"material-icons hamburger-icon"} onClick={toggleIsOpen}>

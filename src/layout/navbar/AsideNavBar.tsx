@@ -14,17 +14,22 @@ function AsideNavBar({ token, setIsNavOpen }: asideNavBarType) {
       <nav>
         <ul className="list aside-nav-links-container">
           <li>
-            <Link
-              className="link white nav-link"
-              to={token ? "/profile" : "/signin"}
-            >
-              <i className="fas fa-user nav-icon"></i>
+            <Link className="link nav-link" to={"/"}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="link nav-link" to={token ? "/profile" : "/signin"}>
+              <i className="fas fa-user nav-icon black"></i>
             </Link>
           </li>
 
           <li>
-            <Link className="link nav-link" to={"/"}>
-              Home
+            <Link
+              className="link nav-link create-quiz-link"
+              to={token ? "/create-quiz" : "/signin"}
+            >
+              <i className="fas fa-plus"></i> Create Quiz
             </Link>
           </li>
         </ul>

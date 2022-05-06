@@ -72,6 +72,16 @@
   color: var(--white);
 }
 
+.create-quiz-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 2px solid var(--white-pure);
+  padding: 8px;
+  font-size: 1.4rem;
+}
+
 .input {
   background-color: var(--white);
   border: none;
