@@ -23,14 +23,14 @@ const KnowledgeBoard = ({
           <p>{quizzesAttempted}</p>
         </div>
 
-        <p className="vl"></p>
+        <p className="vertical-line"></p>
 
         <div className="quiz-board-item">
           <h4>Total points</h4>
           <p>{totalScore}</p>
         </div>
 
-        <p className="vl"></p>
+        <p className="vertical-line"></p>
 
         <div className="quiz-board-item">
           <h4>Knowledge level</h4>

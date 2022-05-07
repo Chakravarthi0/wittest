@@ -1,4 +1,4 @@
-.vl {
+.vertical-line {
   border-left: 3px solid var(--black);
   height: 6rem;
 }
@@ -30,7 +30,7 @@
   .quiz-board-container {
     flex-direction: column;
   }
-  .vl {
+  .vertical-line {
     display: none;
   }
 }

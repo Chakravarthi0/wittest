@@ -9,7 +9,6 @@ const Question = () => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
   const { getNextQuestion, getPreviousQuestion, gameState, setOption } =
     useGame();
-  console.log(gameState);
   const { questions, currentQuestionIndex, selectedOptions, loading, error } =
     gameState;
   const [seconds, setSeconds] = useState(30);
