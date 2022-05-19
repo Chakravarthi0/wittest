@@ -50,17 +50,21 @@ const Category = () => {
           <Loader isFullScreen={true} />
         </div>
       ) : (
-        <div className="quizzes-container">
-          {filteredQuizzes.map((ele: DocumentData) => (
-            <QuizCard
-              key={ele.id}
-              title={ele.quizTitle}
-              imgUrl={ele.quizImgUrl}
-              redirectTo={`/rules/${ele.id}`}
-              isCategoryCard={false}
-              id={ele.id}
-            />
-          ))}
+        <div className={filteredQuizzes.length > 0 ? "quizzes-container " : ""}>
+          {filteredQuizzes.length > 0 ? (
+            filteredQuizzes.map((ele: DocumentData) => (
+              <QuizCard
+                key={ele.id}
+                title={ele.quizTitle}
+                imgUrl={ele.quizImgUrl}
+                redirectTo={`/rules/${ele.id}`}
+                isCategoryCard={false}
+                id={ele.id}
+              />
+            ))
+          ) : (
+            <h1 className="text-center">No quizzes found</h1>
+          )}
         </div>
       )}
     </div>
