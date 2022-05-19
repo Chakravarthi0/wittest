@@ -1,20 +1,34 @@
-import { useNavigate } from "react-router-dom";
-import { useGame } from "../../hooks";
+import { useEffect } from "react";
 import { DocumentData } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { useGame, useAuth } from "../../hooks";
+import { updateScore } from "../../utils";
 import { ResultCard } from "../../components";
 import "./result.css";
 
 const Result = () => {
   const navigate = useNavigate();
+
   const {
     resetQuiz,
     gameState: { questions, selectedOptions },
   } = useGame();
+  const {
+    authState: {
+      userDetails: { token },
+    },
+  } = useAuth();
   const totalPoints = questions.reduce(
     (acc: number, curr: number, index: number) =>
       questions[index].answerIndex === selectedOptions[index] ? acc + 20 : acc,
     0
   );
+
+  useEffect(() => {
+    (async() => {
+      await updateScore(token, totalPoints)
+    })()
+  });
   return (
     <div>
       <h1 className="result-head page-head">Result</h1>

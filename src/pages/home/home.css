@@ -48,11 +48,11 @@
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1300px) {
   .categories {
     grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
   }

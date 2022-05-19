@@ -76,3 +76,13 @@ a {
 .cursor-not-allowed {
   cursor: not-allowed;
 }
+
+.justify-center {
+  justify-content: center;
+}
+
+.form-label-required::after {
+  content: "*";
+  color: var(--danger);
+  padding-right: 1rem;
+}

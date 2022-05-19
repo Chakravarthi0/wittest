@@ -6,8 +6,11 @@ import {
   getDocs,
   DocumentData,
   collection,
+  updateDoc,
+  addDoc,
 } from "firebase/firestore";
 import { categoriesRef, db, quizzesRef } from "../firebaseConfig";
+import { addQuestionHelperType, addQuizHelperType } from "../types";
 
 const createUser = async (
   user: User,
@@ -24,6 +27,8 @@ const createUser = async (
         email: user.email,
         firstName,
         lastName,
+        quizzesAttempted: 0,
+        totalScore: 0,
       });
     }
   } catch (err) {
@@ -44,7 +49,7 @@ const getUser = async (userId: string) => {
 const getCategories = async () => {
   try {
     let res = await getDocs(categoriesRef);
-    const categories: DocumentData | undefined = res.docs.map((ele) => {
+    const categories: DocumentData = res.docs.map((ele) => {
       return { ...ele.data(), id: ele.id };
     });
     return categories;
@@ -57,7 +62,7 @@ const getCategories = async () => {
 const getQuizzes = async () => {
   try {
     let res = await getDocs(quizzesRef);
-    const quizzes: DocumentData | undefined = res.docs.map((ele) => {
+    const quizzes: DocumentData = res.docs.map((ele) => {
       return { ...ele.data(), id: ele.id };
     });
     return quizzes;
@@ -71,7 +76,7 @@ const getQuiz = async (quizId: string) => {
   try {
     const quizRef = collection(db, `quizzes/${quizId}/questions`);
     const res = await getDocs(quizRef);
-    const quiz: DocumentData | undefined = res.docs.map((ele) => {
+    const quiz: DocumentData = res.docs.map((ele) => {
       return { ...ele.data(), id: ele.id };
     });
     return quiz;
@@ -81,4 +86,53 @@ const getQuiz = async (quizId: string) => {
   }
 };
 
-export { createUser, getUser, getCategories, getQuizzes, getQuiz };
+const updateScore = async (uid: string, currentScore: number) => {
+  try {
+    const userRef = doc(db, `users/${uid}`);
+    const userSnapshot = await getDoc(userRef);
+
+    if (userSnapshot.exists()) {
+      const { quizzesAttempted, totalScore } = userSnapshot.data();
+
+      await updateDoc(userRef, {
+        quizzesAttempted: quizzesAttempted + 1,
+        totalScore: totalScore + currentScore,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const addQuiz = async (quizData: addQuizHelperType) => {
+  try {
+    const quizRef = collection(db, "quizzes");
+    const res = await addDoc(quizRef, quizData);
+    return res.id;
+  } catch (err) {
+    console.log(err);
+    return "something went wrong";
+  }
+};
+
+const addQuestion = async ({ quizId, questionData }: addQuestionHelperType) => {
+  try {
+    const quizRef = collection(db, `quizzes/${quizId}/questions`);
+    const res = await addDoc(quizRef, questionData);
+    return res;
+  } catch (err) {
+    console.log(err);
+    return "Something went wrong";
+  }
+};
+
+export {
+  createUser,
+  getUser,
+  getCategories,
+  getQuizzes,
+  getQuiz,
+  updateScore,
+  addQuiz,
+  addQuestion,
+};

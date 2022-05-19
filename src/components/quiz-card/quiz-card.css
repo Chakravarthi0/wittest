@@ -11,6 +11,10 @@
   margin: 2rem 0;
 }
 
+.quiz-img-container {
+  min-height: 20rem;
+}
+
 .quiz-img {
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
@@ -24,4 +28,21 @@
 
 .card-actions {
   justify-content: center;
+}
+
+.share-icon {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 10%;
+  cursor: pointer;
+  color: var(--white-pure);
+  background-color: var(--black-pure);
+  border-radius: 50%;
+  font-size: 2.5rem;
 }

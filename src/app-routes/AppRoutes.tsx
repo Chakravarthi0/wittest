@@ -9,6 +9,7 @@ import {
   Result,
   Category,
   Profile,
+  CreateQuiz,
 } from "../pages";
 import { useAuth } from "../hooks";
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -25,6 +26,7 @@ function AppRoutes() {
 
       <Route path="/quizzes" element={<Category />} />
       <Route path="/quizzes/:quizId" element={<Category />} />
+      <Route path="/rules/:quizId" element={<Rules />} />
 
       {!token ? (
         <>
@@ -39,10 +41,10 @@ function AppRoutes() {
       )}
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/rules" element={<Rules />} />
         <Route path="/question" element={<QuestionPage />} />
         <Route path="/result" element={<Result />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/create-quiz" element={<CreateQuiz />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
