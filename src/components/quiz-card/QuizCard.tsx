@@ -14,7 +14,7 @@ const QuizCard = ({
 
   const copyUrlTOClipboard = async () => {
     await navigator.clipboard.writeText(
-      `https://deploy-preview-4--wittest.netlify.app/rules/${id}`
+      `https://wittest.netlify.app/rules/${id}`
     );
     toast.success("Link copied to clipboard");
   };
