@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { DocumentData, terminate } from "firebase/firestore";
+import { DocumentData } from "firebase/firestore";
 import { useQuiz } from "../../hooks";
 import { QuizCard, Loader } from "../../components";
 import "./category.css";

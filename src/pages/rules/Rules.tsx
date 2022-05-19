@@ -16,7 +16,7 @@ const Rules = () => {
 
   useEffect(() => {
     resetSelections();
-  }, []);
+  }, [resetSelections]);
   return (
     <div className="rules-body text-center">
       {loading ? (
