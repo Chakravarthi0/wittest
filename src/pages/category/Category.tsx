@@ -6,7 +6,7 @@ import { QuizCard, Loader } from "../../components";
 import "./category.css";
 
 const Category = () => {
-  const { quizId } = useParams();
+  const { categoryName } = useParams();
   const {
     quizState: { quizzes, loading: isquizzesLoading },
   } = useQuiz();
@@ -21,13 +21,13 @@ const Category = () => {
         quiz.quizTitle.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    if (quizId) {
+    if (categoryName) {
       res = res.filter(
-        (quiz: { quizCategory: string }) => quiz.quizCategory === quizId
+        (quiz: { quizCategory: string }) => quiz.quizCategory === categoryName
       );
     }
     setFilteredQuizzes(res);
-  }, [quizId, quizzes, searchTerm]);
+  }, [categoryName, quizzes, searchTerm]);
 
   return (
     <div>

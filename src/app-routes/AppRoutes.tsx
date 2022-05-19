@@ -25,7 +25,7 @@ function AppRoutes() {
       <Route path="/" element={<Home />} />
 
       <Route path="/quizzes" element={<Category />} />
-      <Route path="/quizzes/:quizId" element={<Category />} />
+      <Route path="/quizzes/:categoryName" element={<Category />} />
       <Route path="/rules/:quizId" element={<Rules />} />
 
       {!token ? (
