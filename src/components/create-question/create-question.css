@@ -13,6 +13,7 @@
 .question-text {
   width: 100%;
   height: 5rem;
+  resize: none;
 }
 
 .options-input-grid {
