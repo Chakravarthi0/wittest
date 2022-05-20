@@ -32,11 +32,11 @@ const Question = () => {
     return () => {
       clearInterval(currInterval);
     };
-  }, [seconds]);
+  }, [seconds, minutes]);
 
   useEffect(() => {
     setSelectedOptionIndex(selectedOptions[currentQuestionIndex]);
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, selectedOptions]);
 
   return (
     <>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { DocumentData, terminate } from "firebase/firestore";
+import { DocumentData } from "firebase/firestore";
 import { useQuiz } from "../../hooks";
 import { QuizCard, Loader } from "../../components";
 import "./category.css";
 
 const Category = () => {
-  const { quizId } = useParams();
+  const { categoryName } = useParams();
   const {
     quizState: { quizzes, loading: isquizzesLoading },
   } = useQuiz();
@@ -21,13 +21,13 @@ const Category = () => {
         quiz.quizTitle.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    if (quizId) {
+    if (categoryName) {
       res = res.filter(
-        (quiz: { quizCategory: string }) => quiz.quizCategory === quizId
+        (quiz: { quizCategory: string }) => quiz.quizCategory === categoryName
       );
     }
     setFilteredQuizzes(res);
-  }, [quizId, quizzes, searchTerm]);
+  }, [categoryName, quizzes, searchTerm]);
 
   return (
     <div>
@@ -50,17 +50,21 @@ const Category = () => {
           <Loader isFullScreen={true} />
         </div>
       ) : (
-        <div className="quizzes-container">
-          {filteredQuizzes.map((ele: DocumentData) => (
-            <QuizCard
-              key={ele.id}
-              title={ele.quizTitle}
-              imgUrl={ele.quizImgUrl}
-              redirectTo={`/rules/${ele.id}`}
-              isCategoryCard={false}
-              id={ele.id}
-            />
-          ))}
+        <div className={filteredQuizzes.length > 0 ? "quizzes-container " : ""}>
+          {filteredQuizzes.length > 0 ? (
+            filteredQuizzes.map((ele: DocumentData) => (
+              <QuizCard
+                key={ele.id}
+                title={ele.quizTitle}
+                imgUrl={ele.quizImgUrl}
+                redirectTo={`/rules/${ele.id}`}
+                isCategoryCard={false}
+                id={ele.id}
+              />
+            ))
+          ) : (
+            <h1 className="text-center">No quizzes found</h1>
+          )}
         </div>
       )}
     </div>

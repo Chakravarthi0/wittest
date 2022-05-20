@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# Wittest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Wittest is a quiz game web application.
 
-## Available Scripts
+## Tech stack
 
-In the project directory, you can run:
+- Reactjs
+- TypeScript
+- Firebase
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository or download the repository as zip and unzip it in your local machine. You can use a code editor like VS code to edit the source code. Run the command `npm install` to install all the dependency npm packages. Once the installation is done, you can run the command `npm start` to start the application.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- ### Responsive
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  The web app is completely responsive, user can access the web app from any device.
 
-### `npm run build`
+- ### Authentication
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  User can create his/her own account using email.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ### Landing page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  The landing page contains featured categories.
 
-### `npm run eject`
+- ### Quiz listing page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  User can access all the quizzes from this page.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ### Filter
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  User can filter the qizzes by category from home page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- ### Rules page
 
-## Learn More
+The rules will be displayed before starting a quiz
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ### MCQ based question page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This page will display a question with 4 options.
+
+- ### Result page with score
+
+Once the game is over, user can see the result page with their scores and correct answer to the questions.
+
+- ### Timer for quiz:
+
+Each quiz has a timer of 1 minute and 30 seconds. If the user cannot finish within the given time, the game will end.
+
+- ### Search
+
+User can search for quizzes, from the quiz listing page.
+
+- ### quit quiz
+
+User can choose to quit the game while playing.
+
+- ### user profile
+
+User can view details like username and email.
+
+- ### Quiz Board
+
+User can see their game stats from Quiz board, in profile page.
+
+- ### create quiz
+
+User can a create quiz.
+
+- ### Share quiz
+
+User can share the quiz link with friends.
+
+
+https://user-images.githubusercontent.com/57091383/169430158-eff2d007-4475-4edd-85de-a25f6c534cc2.mp4
+
+
+
